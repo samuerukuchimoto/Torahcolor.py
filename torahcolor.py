@@ -1,5 +1,14 @@
-import streamlit as st
 import openai
+openai.api_key = api_key
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a Torah scholar assistant. You only quote from Tehilim (Psalms)."},
+        {"role": "user", "content": user_input}
+    ]
+)
+
 
 # --- Title and Intro ---
 st.set_page_config(page_title="TorahColor – Tehilim Meets Mood 🎨", layout="centered")
